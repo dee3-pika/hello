@@ -8,7 +8,7 @@ const HowItWorks = () => {
     <>
       <div className="howitworks">
         <div className="container">
-          <h3>How JobZee Works</h3>
+          <h3>How Resume Analyzer Works</h3>
           <div className="banner">
             <div className="card">
               <FaUserPlus />
@@ -19,9 +19,9 @@ const HowItWorks = () => {
             </div>
             <div className="card">
               <MdFindInPage />
-              <p>Find a Job/Post a Job</p>
+              <p>upload your resume</p>
               <p>
-                You can apply for the post as you want.
+                You can apply your Resume here.
               </p>
             </div>
             <div className="card">
