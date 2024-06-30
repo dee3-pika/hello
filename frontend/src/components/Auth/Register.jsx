@@ -14,7 +14,6 @@ const Register = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
 
   const { isAuthorized, setIsAuthorized, user, setUser } = useContext(Context);
 
@@ -23,7 +22,7 @@ const Register = () => {
     try {
       const { data } = await axios.post(
         "http://localhost:4000/api/v1/user/register",
-        { name, phone, email, role, password },
+        { name, phone, email, password },
         {
           headers: {
             "Content-Type": "application/json",
@@ -36,38 +35,24 @@ const Register = () => {
       setEmail("");
       setPassword("");
       setPhone("");
-      setRole("");
       setIsAuthorized(true);
     } catch (error) {
       toast.error(error.response.data.message);
     }
   };
 
-  if(isAuthorized){
-    return <Navigate to={'/'}/>
+  if (isAuthorized) {
+    return <Navigate to="/" />;
   }
-
 
   return (
     <>
       <section className="authPage">
         <div className="container">
           <div className="header">
-         
             <h3>Create a new account</h3>
           </div>
           <form>
-            <div className="inputTag">
-              <label>Register As</label>
-              <div>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="">Select Role</option>
-                  <option value="Employer">Employer</option>
-                  <option value="Job Seeker">Job Seeker</option>
-                </select>
-                <FaRegUser />
-              </div>
-            </div>
             <div className="inputTag">
               <label>Name</label>
               <div>
@@ -119,7 +104,7 @@ const Register = () => {
             <button type="submit" onClick={handleRegister}>
               Register
             </button>
-            <Link to={"/login"}>Login Now</Link>
+            <Link to="/login">Login Now</Link>
           </form>
         </div>
         <div className="banner">
