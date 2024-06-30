@@ -26,8 +26,11 @@ const Navbar = () => {
     }
   };
 
-  return (
-    <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
+  return (   
+    
+    
+    
+     <nav className={isAuthorized ? "navbarShow" : "navbarHide"}> 
       <div className="container">
        
   
